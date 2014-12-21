@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.qiheng.hibernate.Team" table="team">
+		
+		<id name="id" column="id" type="string">
+			<generator class="uuid"></generator>
+		</id>
+		
+		<property name="teamName" column="teamName" type="string"></property>
+		<map name="mates" table="mates" cascade="all" lazy="false">
+			<key column="team_id"></key>
+			<index column="name" type="string"></index>
+			<element column="number" type="integer"></element>
+			
+		</map>
+		
+		
+	</class>
+
+</hibernate-mapping>
